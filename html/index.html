@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script> 
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <style>
+        [class*="col-"] {
+            padding: 0;
+            margin: 0;
+ 
+        }
+        ul li{
+            width: 150px;
+
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+    // Mở modal đúng cách
+    $("#open").click(function(){
+        $("#myModal").modal("show");
+    });
+
+    function kiemtraEmail() {
+        var mauKt = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var chuoiKt = $("#txtEmail").val().trim();
+
+    
+           
+        if (!mauKt.test(chuoiKt)) { // Kiểm tra nếu email không hợp lệ
+            alert("❌ Email không hợp lệ, vui lòng nhập lại!");
+            return false;
+        }else{
+            alert("✔️ Email hợp lệ!");
+            return true; 
+        }
+        // Email hợp lệ
+    }
+
+    // Chỉ kiểm tra email khi rời khỏi ô nhập (blur)
+    $("#txtEmail").blur(kiemtraEmail);
+});
+
+       
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <img src="../IMG/logo.png" alt="Logo" >
+            </div>
+            <div class="col-md-9 col-sm-3" style="position: relative; color: royalblue;">
+                <img src="../IMG/header.png" alt="Header" >
+                <H1 style="position: absolute; top:2px; left: 60px; "  >SERVICES MOBI</H1>
+            </div>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="http://iuh.edu.vn">HOME</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">TTNN</a></li>
+                          <li><a class="dropdown-item" href="#" id="open">TTTH</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">TTGD-QP</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex">
+                      <input class="form-control me-md-1" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+        </div>
+        <div class="row ">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="row">
+            <div class="modal" tabindex="-1" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <h1>DANH SACH DANG KY</h1>
+                      <div class="mb-3 row">
+                        <label for="txtEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="text"  class="form-control-plaintext" id="txtEmail" value="email@example.com">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row">Footer</div>
+    </div>
+    
+</body>
+
+</html>
